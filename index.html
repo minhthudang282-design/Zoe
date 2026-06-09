@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoe — Hiragana & Katakana Quiz</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">ひ</div>
+    <h1>Kana Quiz</h1>
+    <p class="subtitle">Hiragana &amp; Katakana</p>
+  </header>
+
+  <main>
+    <!-- Mode select -->
+    <section id="screen-menu" class="screen active">
+      <h2>Choose a mode</h2>
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="hiragana">
+          <span class="kana-big">あ</span>
+          <span class="mode-label">Hiragana</span>
+          <span class="mode-desc">46 characters</span>
+        </button>
+        <button class="mode-card" data-mode="katakana">
+          <span class="kana-big">ア</span>
+          <span class="mode-label">Katakana</span>
+          <span class="mode-desc">46 characters</span>
+        </button>
+        <button class="mode-card" data-mode="mixed">
+          <span class="kana-big">混</span>
+          <span class="mode-label">Mixed</span>
+          <span class="mode-desc">Both systems</span>
+        </button>
+      </div>
+
+      <div class="settings-row">
+        <label>
+          <span>Questions</span>
+          <select id="q-count">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="46">All (46)</option>
+          </select>
+        </label>
+        <label>
+          <span>Type</span>
+          <select id="q-type">
+            <option value="kana-to-romaji">Kana → Romaji</option>
+            <option value="romaji-to-kana">Romaji → Kana</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="btn-start" class="btn-primary">Start Quiz →</button>
+    </section>
+
+    <!-- Quiz screen -->
+    <section id="screen-quiz" class="screen">
+      <div class="progress-bar-wrap">
+        <div id="progress-bar"></div>
+      </div>
+      <div class="progress-label">
+        <span id="q-current">1</span> / <span id="q-total">20</span>
+      </div>
+
+      <div class="card-question">
+        <div id="question-text" class="question-kana"></div>
+      </div>
+
+      <div id="choices" class="choices-grid"></div>
+
+      <div id="feedback" class="feedback hidden">
+        <span id="feedback-icon"></span>
+        <span id="feedback-text"></span>
+      </div>
+    </section>
+
+    <!-- Result screen -->
+    <section id="screen-result" class="screen">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <h2 id="result-title">Nice work!</h2>
+      <div class="score-display">
+        <span id="score-num">18</span>
+        <span class="score-denom" id="score-denom">/ 20</span>
+      </div>
+      <p id="result-msg" class="result-msg"></p>
+      <div class="result-actions">
+        <button id="btn-retry" class="btn-primary">Try again</button>
+        <button id="btn-menu" class="btn-secondary">Change mode</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
